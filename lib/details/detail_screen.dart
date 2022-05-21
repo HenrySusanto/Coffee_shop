@@ -4,46 +4,35 @@ import 'package:flutter_svg/svg.dart';
 import '../screens/home_screen.dart';
 import 'components/item_image.dart';
 
-class detailScreen extends StatefulWidget {
+
+class detailScreen extends StatelessWidget {
   const detailScreen({Key? key}) : super(key: key);
 
-  @override
-  _detailScreenState createState() => _detailScreenState();
-}
-
-class _detailScreenState extends State<detailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kPrimaryColor,
       appBar: AppBar(
-          elevation: 0,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()),);
-            },
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomeScreen()),);
+          },
 
-          ),
-          actions: <Widget>[
-            IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/bookmark.svg"),)
-          ],
+        ),
+        actions: <Widget>[
+          IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/bookmark.svg"),)
+        ],
       ),
       body: const Body(),
     );
   }
 }
 
-
-
-class Body extends StatefulWidget {
+class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
-  @override
-  _BodyState createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Column(

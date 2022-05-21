@@ -3,18 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:coffee_shop/constants.dart';
 
 import 'package:flutter_svg/svg.dart';
-import '../../screens/home_screen.dart';
-import 'item_image.dart';
+import '../screens/home_screen.dart';
+import 'components/item_image.dart';
 
 
-class detailScreen2 extends StatefulWidget {
+class detailScreen2 extends StatelessWidget {
   const detailScreen2({Key? key}) : super(key: key);
 
-  @override
-  _detailScreen2State createState() => _detailScreen2State();
-}
-
-class _detailScreen2State extends State<detailScreen2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,16 +32,9 @@ class _detailScreen2State extends State<detailScreen2> {
   }
 }
 
-
-
-class Body extends StatefulWidget {
+class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
-  @override
-  _BodyState createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -61,6 +49,7 @@ class _BodyState extends State<Body> {
     );
   }
 }
+
 
 class ItemInfo extends StatelessWidget {
   const ItemInfo({

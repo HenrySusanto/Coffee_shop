@@ -3,14 +3,9 @@ import 'package:flutter/material.dart';
 import 'discount_card.dart';
 import 'item_list.dart';
 
-class Body extends StatefulWidget {
+class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
-  @override
-  _BodyState createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,4 +18,5 @@ class _BodyState extends State<Body> {
     );
   }
 }
+
 

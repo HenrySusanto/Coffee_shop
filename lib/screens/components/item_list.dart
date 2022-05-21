@@ -1,6 +1,6 @@
 import 'package:coffee_shop/details/detail_screen.dart';
 import 'package:flutter/material.dart';
-import '../../details/components/detail_screen_2.dart';
+import '../../details/detail_screen_2.dart';
 import '../../details/detailScreen3.dart';
 import 'item_card.dart';
 

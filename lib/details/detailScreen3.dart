@@ -4,14 +4,10 @@ import 'package:flutter_svg/svg.dart';
 import '../screens/home_screen.dart';
 import 'components/item_image.dart';
 
-class detailScreen3 extends StatefulWidget {
+
+class detailScreen3 extends StatelessWidget {
   const detailScreen3({Key? key}) : super(key: key);
 
-  @override
-  _detailScreen3State createState() => _detailScreen3State();
-}
-
-class _detailScreen3State extends State<detailScreen3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,16 +30,9 @@ class _detailScreen3State extends State<detailScreen3> {
   }
 }
 
-
-
-class Body extends StatefulWidget {
+class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
 
-  @override
-  _BodyState createState() => _BodyState();
-}
-
-class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Column(
