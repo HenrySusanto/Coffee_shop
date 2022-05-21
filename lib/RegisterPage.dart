@@ -2,17 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'LoginPages.dart';
 
-
-class RegisterPage extends StatefulWidget {
+class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
 
-class _LoginPageState extends State<RegisterPage> {
-  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    TextEditingController controller = TextEditingController();
     return Scaffold(
       body: Center(
         child: Column(
@@ -82,4 +77,5 @@ class _LoginPageState extends State<RegisterPage> {
     );
   }
 }
+
 

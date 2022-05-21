@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../constants.dart';
 
-class SearchBox extends StatefulWidget {
-  const SearchBox({Key? key }) : super(key: key);
 
-  @override
-  _SearchBoxState createState() => _SearchBoxState();
-}
-
-class _SearchBoxState extends State<SearchBox> {
-
+class SearchBox extends StatelessWidget {
+  const SearchBox({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,3 +25,4 @@ class _SearchBoxState extends State<SearchBox> {
     );
   }
 }
+

@@ -1,3 +1,4 @@
+import 'package:coffee_shop/screens/components/receipt.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -28,11 +29,17 @@ class BottomNavBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          IconButton(onPressed: (){},
+          IconButton(onPressed: (){
+
+            },
               icon: SvgPicture.asset("assets/icons/home.svg")),
           IconButton(onPressed: (){},
               icon: SvgPicture.asset("assets/icons/cart.svg")),
-          IconButton(onPressed: (){},
+          IconButton(onPressed: (){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+              return Receipt();
+            }));
+          },
               icon: SvgPicture.asset("assets/icons/receipt.svg"))
         ],
       ),

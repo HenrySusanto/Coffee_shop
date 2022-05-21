@@ -31,6 +31,7 @@ class detailScreen extends StatelessWidget {
 }
 
 class Body extends StatelessWidget {
+
   const Body({Key? key}) : super(key: key);
 
   @override
@@ -52,6 +53,8 @@ class ItemInfo extends StatelessWidget {
   const ItemInfo({
     Key? key,
   }) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -107,9 +110,7 @@ class ItemInfo extends StatelessWidget {
              child: Material(
                color: Colors.transparent,
                child: InkWell(
-                 onTap: (){
-
-                 },
+                 onTap: (){},
                  child: Padding(
                    padding: const EdgeInsets.all(20.0),
                    child: Row(
