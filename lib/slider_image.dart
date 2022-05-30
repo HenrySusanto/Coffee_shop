@@ -1,9 +1,9 @@
+import 'package:coffee_shop/signin_screen.dart';
 import 'package:flutter/material.dart';
-import 'LoginPages.dart';
 import 'coffebox.dart';
 
-class MainPage extends StatelessWidget {
-  const MainPage({Key? key}) : super(key: key);
+class SliderImage extends StatelessWidget {
+  const SliderImage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class MainPage extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return LoginPage();
+                      return SignInScreen();
                     }));
                   },
                   child: Text("Get Started"),

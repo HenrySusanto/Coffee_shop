@@ -1,42 +1,75 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
-class Receipt extends StatefulWidget {
+import '../../kopi.dart';
+
+void main() {
+  runApp(Receipt());
+}
+
+class Receipt extends StatelessWidget {
   const Receipt({Key? key}) : super(key: key);
 
   @override
-  _ReceiptState createState() => _ReceiptState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'News App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      initialRoute: NewsListPage.routeName,
+      routes: {
+        NewsListPage.routeName: (context) => NewsListPage(),
+      },
+    );
+  }
 }
 
-class _ReceiptState extends State<Receipt> {
-  int number  = 0;
-
-  void tekanTombol(){
-      setState(() {
-        number = number + 1;
-      });
-  }
+class NewsListPage extends StatelessWidget {
+  static const routeName = '/article_list';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Belajar Statefull widget"),
+        title: Text('News App'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(number.toString()),
-            RaisedButton(onPressed: tekanTombol,
-            child: Text("Tambah bilangan "),
-            ),
-
-            RaisedButton(onPressed: (){
-              Navigator.pop(context);
-            },child: Text("kembali"))
-          ],
-        ),
-      ),
+      body: FutureBuilder<String>(
+        future:
+        DefaultAssetBundle.of(context).loadString('assets/coffee.json'),
+        builder: (context, snapshot) {
+          final List<Kopi> articles = parseArticles(snapshot.data);
+          return ListView.builder(
+            itemCount: articles.length,
+            itemBuilder: (context, index) {
+              return _buildArticleItem(context, articles[index]);
+            },
+          );
+        }),
     );
   }
 }
+
+List<Kopi> parseArticles(String? json) {
+  if (json == null) {
+    return [];
+  }
+
+
+  final List parsed = jsonDecode(json);
+  return parsed.map((json) => Kopi.fromJson(json)).toList();
+}
+
+  Widget _buildArticleItem(BuildContext context, Kopi article) {
+    return ListTile(
+      contentPadding:
+      const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      leading: Image.network(
+        article.urlToImage,
+        width: 100,
+      ),
+      title: Text(article.title),
+    );
+  }
