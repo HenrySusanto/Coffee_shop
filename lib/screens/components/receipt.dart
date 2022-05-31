@@ -14,6 +14,7 @@ class Receipt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'News App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -40,7 +41,7 @@ class NewsListPage extends StatelessWidget {
         future:
         DefaultAssetBundle.of(context).loadString('assets/coffee.json'),
         builder: (context, snapshot) {
-          final List<Kopi> articles = parseArticles(snapshot.data);
+          final List<Article> articles = parseArticles(snapshot.data);
           return ListView.builder(
             itemCount: articles.length,
             itemBuilder: (context, index) {
@@ -52,17 +53,17 @@ class NewsListPage extends StatelessWidget {
   }
 }
 
-List<Kopi> parseArticles(String? json) {
+List<Article> parseArticles(String? json) {
   if (json == null) {
     return [];
   }
 
 
   final List parsed = jsonDecode(json);
-  return parsed.map((json) => Kopi.fromJson(json)).toList();
+  return parsed.map((json) => Article.fromJson(json)).toList();
 }
 
-  Widget _buildArticleItem(BuildContext context, Kopi article) {
+  Widget _buildArticleItem(BuildContext context, Article article) {
     return ListTile(
       contentPadding:
       const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),

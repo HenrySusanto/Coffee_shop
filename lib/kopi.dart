@@ -1,18 +1,19 @@
+import 'dart:convert';
 
-class Kopi{
+class Article{
   late String title;
   late String description;
   late String urlToImage;
   late String publishedAt;
 
-  Kopi ({
+  Article ({
     required this.title,
     required this.description,
     required this.urlToImage,
     required this.publishedAt,
   });
 
-  Kopi.fromJson(Map<String, dynamic> article) {
+  Article.fromJson(Map<String, dynamic> article) {
 
     title = article['title'];
     description = article['description'];
@@ -21,6 +22,15 @@ class Kopi{
 
   }
 
+}
+
+List<Article> parseArticles(String? json) {
+  if (json == null) {
+    return [];
+  }
+
+  final List parsed = jsonDecode(json);
+  return parsed.map((json) => Article.fromJson(json)).toList();
 }
 
 
